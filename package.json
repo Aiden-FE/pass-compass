@@ -1,0 +1,27 @@
+{
+  "name": "safe-password",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://safepass.makabonka.cn",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write src",
+    "prepare": "npx simple-git-hooks"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "cross-env": "^7.0.3",
+    "prettier": "^3.3.3",
+    "pretty-quick": "^4.0.0",
+    "simple-git-hooks": "^2.11.1"
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx cross-env HUSKY_GIT_PARAMS=$1 npx --no-install commitlint --edit $HUSKY_GIT_PARAMS",
+    "pre-commit": "npx pretty-quick --staged"
+  }
+}
