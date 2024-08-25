@@ -40,7 +40,7 @@ jobs:
           SKIP_INSTALL_SIMPLE_GIT_HOOKS: 1
           SKIP_SIMPLE_GIT_HOOKS: 1
           NODE_ENV: production
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
       - name: Run custom commands
         env:
           NODE_ENV: production
