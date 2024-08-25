@@ -15,12 +15,7 @@ jobs:
         run: |
           TAG_NAME="${{ github.ref }}"
           VERSION=$(echo $TAG_NAME | grep -oP '\b\d+\.\d+\.\d+\b')
-          if [ -z "$VERSION" ]; then
-            echo "No version found in the tag name: $TAG_NAME"
-            exit 1  # 如果没有找到版本号，可以选择退出
-          else
-            echo "Version extracted from tag: $VERSION"
-            echo "::set-output name=version::$VERSION"
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
       - uses: actions/checkout@v4
       - name: Setup git
         run: |-
@@ -56,5 +51,5 @@ jobs:
           context: apps/official-client
           push: true
           tags: |-
-            ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_IMAGE_NAME }}:${{ steps.extract_version.outputs.version }}
+            ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_IMAGE_NAME }}:${{ env.version }}
             ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_IMAGE_NAME }}:latest
