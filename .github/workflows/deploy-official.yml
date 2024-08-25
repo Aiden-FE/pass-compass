@@ -39,8 +39,9 @@ jobs:
           HUSKY: 0
           SKIP_INSTALL_SIMPLE_GIT_HOOKS: 1
           SKIP_SIMPLE_GIT_HOOKS: 1
-          NODE_ENV: production
-        run: pnpm install
+        run: |-
+          npm pkg delete scripts.prepare
+          pnpm install
       - name: Run custom commands
         env:
           NODE_ENV: production
