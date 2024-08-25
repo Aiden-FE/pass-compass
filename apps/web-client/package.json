@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build:draft": "next build",
+    "start:draft": "next start",
     "lint": "next lint --fix"
   },
   "browserslist": {

@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // output: 'export',
+  // output: 'standalone',
+  distDir: 'dist',
   sassOptions: {
     additionalData: `
       @import "@compass-aiden/styles/dist/static/bem.scss";
