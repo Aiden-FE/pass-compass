@@ -61,4 +61,4 @@ jobs:
             ${{ vars.DOCKERHUB_IMAGE_NAME }}:${{ env.VERSION }}
             ${{ vars.DOCKERHUB_IMAGE_NAME }}:latest
       - name: Deploy to official server
-        run: curl ${{ vars.WEBHOOK_SERVER_HOST }}/hooks/deploy-safe-password-official?token=${{ secrets.DEPLOY_TOKEN }}
+        run: curl ${{ vars.WEBHOOK_SERVER_HOST }}/hooks/deploy-safe-password-official?token=${{ secrets.WEBHOOK_TOKEN }}
